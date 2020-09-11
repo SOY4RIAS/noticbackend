@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="546dbe42-46f8-4d9a-ae63-a0269d257208" name="Default Changelist" comment="" />
+    <list default="true" id="546dbe42-46f8-4d9a-ae63-a0269d257208" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ed82a982-3f8f-4731-a280-b3e907fa5bff.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/handlers/v1/handlers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/handlers/v1/notesHandler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/note.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/repositories/note/noteRepository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/repositories/note/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/note/noteService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/note/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/options.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/parse/transform.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/response/Response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/noticbackend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/noticbackend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/noticbackend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/noticbackend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,23 +47,70 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1hHIvP78SCk4QSsVGwRaSRZlKNP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mongo" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Projects/golang-mongodb-restful-starter-kit" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils/response" />
+      <recent name="$PROJECT_DIR$/app/handlers/v1" />
+      <recent name="$PROJECT_DIR$/app/repositories/note" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build main.go">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="noticbackend" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/cmd/noticbackend/main.go" />
+      <package value="noticbackend" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build noticbackend" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="noticbackend" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="noticbackend" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build noticbackend/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="noticbackend" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="noticbackend/cmd" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build noticbackend/cmd/noticbackend" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="noticbackend" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/noticbackend/main.go" />
+      <package value="noticbackend/cmd/noticbackend" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yml.database: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -47,7 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Docker.docker-compose.yml.database: Compose Deployment" />
+        <item itemvalue="Go Build.go build noticbackend/cmd" />
+        <item itemvalue="Go Build.go build noticbackend" />
+        <item itemvalue="Go Build.go build noticbackend/cmd/noticbackend" />
       </list>
     </recent_temporary>
   </component>
@@ -55,22 +138,86 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="714" y="324" width="482" height="384" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599706021210">
+    <state x="555" y="180" width="800" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599786196856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="714" y="324" width="482" height="384" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599706021210" />
-    <state x="742" y="279" width="424" height="483" key="FileChooserDialogImpl" timestamp="1599674946272">
-      <screen x="0" y="28" width="1920" height="980" />
+    <state x="555" y="180" width="800" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599786196856" />
+    <state x="714" y="324" width="512" height="384" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599778013470">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="714" y="324" width="512" height="384" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599778013470" />
+    <state x="768" y="238" width="374" height="556" key="#com.intellij.ide.util.MemberChooser" timestamp="1599774016546">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="768" y="238" width="374" height="556" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599774016546" />
+    <state x="742" y="266" width="424" height="483" key="FileChooserDialogImpl" timestamp="1599747652300">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="742" y="266" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599747652300" />
     <state x="742" y="279" width="424" height="483" key="FileChooserDialogImpl/0.28.1920.980@0.28.1920.980" timestamp="1599674946272" />
-    <state x="456" y="136" key="SettingsEditor" timestamp="1599706143765">
+    <state width="1878" height="341" key="GridCell.Tab.0.bottom" timestamp="1599786838668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="456" y="136" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599706143765" />
+    <state width="1878" height="341" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838668" />
+    <state width="1878" height="341" key="GridCell.Tab.0.center" timestamp="1599786838666">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="341" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838666" />
+    <state width="1878" height="341" key="GridCell.Tab.0.left" timestamp="1599786838666">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="341" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838666" />
+    <state width="1878" height="341" key="GridCell.Tab.0.right" timestamp="1599786838667">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="341" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838667" />
+    <state width="1878" height="341" key="GridCell.Tab.1.bottom" timestamp="1599786838669">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="341" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838669" />
+    <state width="1878" height="341" key="GridCell.Tab.1.center" timestamp="1599786838669">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="341" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838669" />
+    <state width="1878" height="341" key="GridCell.Tab.1.left" timestamp="1599786838668">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="341" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838668" />
+    <state width="1878" height="341" key="GridCell.Tab.1.right" timestamp="1599786838669">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="341" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838669" />
+    <state width="222" height="457" key="HiddenNamespacesPopup" timestamp="1599786217900">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="222" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1599786217900" />
+    <state x="456" y="136" key="SettingsEditor" timestamp="1599770922074">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="456" y="136" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599770922074" />
     <state x="456" y="156" key="SettingsEditor/0.28.1920.980@0.28.1920.980" timestamp="1599675128199" />
+    <state x="666" y="142" width="587" height="753" key="find.popup" timestamp="1599770047414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="142" width="587" height="753" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599770047414" />
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1599781530832">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599781530832" />
   </component>
 </project>
