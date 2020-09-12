@@ -8,18 +8,23 @@ import (
 	"noticbackend/config"
 )
 
-type NoteService struct {
-	client *mongo.Client
+// ServiceNote service of the notes
+type ServiceNote struct {
+	db         *mongo.Database
 	repository note.Repository
-	config *config.Config
-}
-func (NoteService) New(client *mongo.Client, config *config.Config) *NoteService {
-	repository := note.NoteRepository{}.New(client,config)
-
-	return &NoteService{client: client, repository: repository, config: config}
+	config     *config.Config
 }
 
-func (n *NoteService) Create(ctx context.Context, note *models.Note) error {
+func (ServiceNote) New(db *mongo.Database, config *config.Config) *ServiceNote {
+	repository := note.RepositoryNote{}.New(db, config)
+
+	return &ServiceNote{db: db, repository: repository, config: config}
+}
+
+func (n *ServiceNote) Create(ctx context.Context, note *models.Note) error {
 	return n.repository.Create(ctx, note)
 }
 
+func (n *ServiceNote) FindAll(ctx context.Context) ([]models.Note, error) {
+	return n.repository.FindAll(ctx)
+}

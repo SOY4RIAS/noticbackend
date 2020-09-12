@@ -14,9 +14,9 @@ import (
 func main() {
 	c := config.New()
 
-	dbClient := database.GetClient(c)
+	db := database.New(c)
 
-	notesService := note.NoteService{}.New(dbClient, c)
+	notesService := note.ServiceNote{}.New(db, c)
 
 	r := chi.NewRouter()
 

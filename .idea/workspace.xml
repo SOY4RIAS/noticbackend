@@ -10,29 +10,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="546dbe42-46f8-4d9a-ae63-a0269d257208" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ed82a982-3f8f-4731-a280-b3e907fa5bff.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/handlers/v1/handlers.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/handlers/v1/notesHandler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/note.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/note/noteRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/note/repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/note/noteService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/note/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/parse/transform.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/response/Response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/noticbackend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/noticbackend.iml" afterDir="false" />
+    <list default="true" id="546dbe42-46f8-4d9a-ae63-a0269d257208" name="Default Changelist" comment="improve performance on db connection">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ed82a982-3f8f-4731-a280-b3e907fa5bff.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/handlers/v1/notesHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/handlers/v1/notesHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/note.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/note/noteRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/note/noteRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/note/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/note/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/note/noteService.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/note/noteService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/note/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/note/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/noticbackend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/noticbackend/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/options.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +53,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mongo" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
@@ -148,6 +139,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="improve performance on db connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve performance on db connection" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -170,22 +166,22 @@
     </state>
     <state x="742" y="266" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599747652300" />
     <state x="742" y="279" width="424" height="483" key="FileChooserDialogImpl/0.28.1920.980@0.28.1920.980" timestamp="1599674946272" />
-    <state width="1878" height="341" key="GridCell.Tab.0.bottom" timestamp="1599786838668">
+    <state width="1878" height="383" key="GridCell.Tab.0.bottom" timestamp="1599865476161">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="341" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838668" />
-    <state width="1878" height="341" key="GridCell.Tab.0.center" timestamp="1599786838666">
+    <state width="1878" height="383" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599865476161" />
+    <state width="1878" height="383" key="GridCell.Tab.0.center" timestamp="1599865476160">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="341" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838666" />
-    <state width="1878" height="341" key="GridCell.Tab.0.left" timestamp="1599786838666">
+    <state width="1878" height="383" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599865476160" />
+    <state width="1878" height="383" key="GridCell.Tab.0.left" timestamp="1599865476160">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="341" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838666" />
-    <state width="1878" height="341" key="GridCell.Tab.0.right" timestamp="1599786838667">
+    <state width="1878" height="383" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599865476160" />
+    <state width="1878" height="383" key="GridCell.Tab.0.right" timestamp="1599865476160">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="341" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838667" />
+    <state width="1878" height="383" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599865476160" />
     <state width="1878" height="341" key="GridCell.Tab.1.bottom" timestamp="1599786838669">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -202,15 +198,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="341" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599786838669" />
-    <state width="222" height="457" key="HiddenNamespacesPopup" timestamp="1599786217900">
+    <state width="222" height="457" key="HiddenNamespacesPopup" timestamp="1599786944342">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="222" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1599786217900" />
-    <state x="456" y="136" key="SettingsEditor" timestamp="1599770922074">
+    <state width="222" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1599786944342" />
+    <state x="456" y="136" key="SettingsEditor" timestamp="1599832519195">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="456" y="136" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599770922074" />
+    <state x="456" y="136" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599832519195" />
     <state x="456" y="156" key="SettingsEditor/0.28.1920.980@0.28.1920.980" timestamp="1599675128199" />
+    <state x="555" y="255" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1599792189921">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="555" y="255" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599792189921" />
     <state x="666" y="142" width="587" height="753" key="find.popup" timestamp="1599770047414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

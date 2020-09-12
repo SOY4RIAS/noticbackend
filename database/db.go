@@ -7,13 +7,25 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"noticbackend/config"
+	"sync"
 	"time"
 )
 
-var client *mongo.Client
-var err error
+var (
+	db     *mongo.Database
+	client *mongo.Client
+	once   sync.Once
+	err    error
+)
 
-func GetClient(c *config.Config) *mongo.Client {
+func New(c *config.Config) *mongo.Database {
+	once.Do(func() {
+		setClient(c)
+	})
+	return db
+}
+
+func setClient(c *config.Config) {
 
 	if client == nil {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -25,38 +37,28 @@ func GetClient(c *config.Config) *mongo.Client {
 			log.Fatal(err)
 		}
 
-		err = client.Ping(context.TODO(), nil)
+		err = client.Ping(ctx, nil)
 
 		if err != nil {
 			log.Fatal(err)
 		}
 
-
+		db = client.Database(c.DatabaseName)
 
 		fmt.Println("Connected to MongoDB!")
 	}
 
-	return client
 }
 
-func GetCollection(ctx context.Context, opts GetCollectionOptions) (*mongo.Collection,  error) {
+func GetCollection(ctx context.Context, collectionName string) (*mongo.Collection, error) {
 
-	//if err := opts.Client.Connect(ctx); err != nil {
-	//	return nil, nil, err
-	//}
-	//cancel := func() error {
-	//	return opts.Client.Disconnect(ctx)
-	//}
-
-	err = opts.Client.Ping(ctx, nil)
+	err = client.Ping(ctx, nil)
 
 	if err != nil {
-		return nil,  err
+		return nil, err
 	}
 
-
-	collection := opts.Client.Database(opts.DatabaseName).Collection(opts.CollectionName)
-
+	collection := db.Collection(collectionName)
 
 	return collection, nil
 }

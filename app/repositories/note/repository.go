@@ -13,7 +13,7 @@ type Repository interface {
 
 	// FildAll, returns all users in the system
 	// It will return error also if occurs
-	FindAll(context.Context) ([]*models.Note, error)
+	FindAll(context.Context) ([]models.Note, error)
 
 	// FindOneById, find the user by the provided id
 	// return matched user and error if any
@@ -26,5 +26,4 @@ type Repository interface {
 	// Delete, will remove user entry from DB
 	// Return error if any
 	Delete(context.Context, *models.Note) error
-
 }
