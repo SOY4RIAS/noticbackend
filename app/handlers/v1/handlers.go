@@ -1,8 +1,8 @@
-package v1
+package v1note2
 
 import (
 	"github.com/go-chi/chi"
-	note2 "noticbackend/app/handlers/v1/note"
+	. "noticbackend/app/handlers/v1/note"
 
 	"noticbackend/app/services/note"
 	"noticbackend/config"
@@ -19,5 +19,5 @@ func Setup(c *config.Config, r *chi.Mux) {
 
 	serviceNote := note.ServiceNote{}.New(db, c)
 
-	note2.NotesRouter(BaseRoute, serviceNote, c, r)
+	NotesRouter(BaseRoute, serviceNote, c, r)
 }
