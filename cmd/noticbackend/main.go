@@ -1,14 +1,15 @@
 package main
 
 import (
-	"github.com/go-chi/chi"
-	"github.com/go-chi/chi/middleware"
-	"github.com/go-chi/cors"
-	"net/http"
-	v1 "noticbackend/app/handlers/v1"
+	"context"
+	"log"
+	"noticbackend/app/server"
 	"noticbackend/app/services/note"
 	"noticbackend/config"
 	"noticbackend/database"
+	"os"
+	"os/signal"
+	"time"
 )
 
 func main() {
@@ -16,35 +17,40 @@ func main() {
 
 	db := database.New(c)
 
-	notesService := note.ServiceNote{}.New(db, c)
+	serviceNote := note.ServiceNote{}.New(db, c)
 
-	r := chi.NewRouter()
+	srv := server.New(server.Options{
+		ServiceNote: serviceNote,
+		Config:      c,
+	})
 
-	setupMiddlewares(r)
+	// Run our server in a goroutine so that it doesn't block.
+	go func() {
+		if err := srv.ListenAndServe(); err != nil {
+			log.Println(err)
+		}
+	}()
 
-	v1.NotesRouter(notesService, c, r)
+	ch := make(chan os.Signal, 1)
 
-	_ = http.ListenAndServe(c.Address, r)
+	// We'll accept graceful shutdowns when quit via SIGINT (Ctrl+C)
+	signal.Notify(ch, os.Interrupt)
 
-}
+	// Block until we receive our signal.
+	<-ch
+	log.Println("shutting down")
 
-func setupMiddlewares(r *chi.Mux) {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
 
-	r.Use(middleware.RequestID)
-	r.Use(middleware.RealIP)
-	r.Use(middleware.Logger)
-	r.Use(middleware.Recoverer)
-	setupCors(r)
-}
+	go func() {
+		if err := database.ShutDown(ctx); err != nil {
+			log.Println(err)
+		}
+	}()
 
-func setupCors(r *chi.Mux) {
-	options := cors.Options{
-		AllowedOrigins: []string{"*"},
-		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowedHeaders: []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
-		ExposedHeaders: []string{"Link"},
-		MaxAge:         300, // Maximum value not ignored by any of major browsers
-	}
+	<-ctx.Done()
+	log.Println("server shut down")
 
-	r.Use(cors.Handler(options))
+	os.Exit(0)
 }

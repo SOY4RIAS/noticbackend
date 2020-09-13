@@ -62,3 +62,11 @@ func GetCollection(ctx context.Context, collectionName string) (*mongo.Collectio
 
 	return collection, nil
 }
+
+func ShutDown(ctx context.Context) error {
+	if err = client.Disconnect(ctx); err != nil {
+		return err
+	}
+
+	return nil
+}

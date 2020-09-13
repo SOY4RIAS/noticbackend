@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="notic-db@localhost" uuid="98f05cc0-82e8-4073-bfa7-b2a54a389e54">
-      <database-info product="Mongo DB" version="4.4.0" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.8.3" dbms="MONGO" exact-version="4.4.0" exact-driver-version="1.8" />
+    <data-source name="@localhost" uuid="2a9b0ec0-1fd8-4197-8311-2f2fddb54e26">
+      <database-info product="Mongo DB" version="4.4.1" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.8.3" dbms="MONGO" exact-version="4.4.1" exact-driver-version="1.8" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="notic-db" />
+          <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
     </data-source>

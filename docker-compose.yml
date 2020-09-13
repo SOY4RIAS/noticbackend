@@ -1,14 +1,11 @@
 version: '3'
 services:
-  database:
+  mongo:
     image: mongo
-    container_name: 'mongo-notic-container'
-    environment:
-      - MONGO_INITDB_DATABASE=notic-db
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=1234
+    container_name: 'mongo-database'
     volumes:
-      - ~/development/docker/container/mongo-notic-container/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
-      - ~/development/docker/container/mongo-notic-container/mongo-volume:/data/db
+      - ~/development/docker/container/mongo-database/data:/data/db
     ports:
-    - 27017
+      - 27017
+    expose:
+      - 27017

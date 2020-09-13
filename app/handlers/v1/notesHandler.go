@@ -19,7 +19,7 @@ type NotesHandler struct {
 func NotesRouter(s note.Service, c *config.Config, r *chi.Mux) {
 	handler := &NotesHandler{service: s, config: c}
 
-	r.Route("/notes", func(r chi.Router) {
+	r.Route(BaseRoute+"/notes", func(r chi.Router) {
 		r.Get("/", handler.findAll)
 		r.Post("/", handler.createNote)
 	})
