@@ -4,8 +4,6 @@ import (
 	"context"
 	"log"
 	"noticbackend/app/server"
-	"noticbackend/app/services/note"
-	"noticbackend/config"
 	"noticbackend/database"
 	"os"
 	"os/signal"
@@ -13,16 +11,8 @@ import (
 )
 
 func main() {
-	c := config.New()
 
-	db := database.New(c)
-
-	serviceNote := note.ServiceNote{}.New(db, c)
-
-	srv := server.New(server.Options{
-		ServiceNote: serviceNote,
-		Config:      c,
-	})
+	srv := server.New()
 
 	// Run our server in a goroutine so that it doesn't block.
 	go func() {

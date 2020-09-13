@@ -67,8 +67,25 @@ func (n RepositoryNote) FindAll(ctx context.Context) ([]models.Note, error) {
 	return notes, nil
 }
 
-func (n RepositoryNote) FindOneById(_ context.Context, _ string) (*models.Note, error) {
-	panic("implement me")
+func (n RepositoryNote) FindOneById(ctx context.Context, id string) (*models.Note, error) {
+
+	collection, err := database.GetCollection(ctx, collectionName)
+
+	if err != nil {
+		return nil, err
+	}
+
+	var note models.Note
+
+	filter := bson.D{{"_id", id}}
+
+	err = collection.FindOne(context.Background(), filter).Decode(&note)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &note, nil
 }
 
 func (n RepositoryNote) Update(_ context.Context, _ interface{}, _ interface{}) error {

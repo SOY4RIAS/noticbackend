@@ -8,5 +8,6 @@ import (
 type Service interface {
 	//Update(context.Context, string, *models.NoteUpdate) error
 	Create(context.Context, *models.Note) error
-	FindAll(ctx context.Context) ([]models.Note, error)
+	FindAll(context.Context) ([]models.Note, error)
+	FindOneById(context.Context, string) (*models.Note, error)
 }

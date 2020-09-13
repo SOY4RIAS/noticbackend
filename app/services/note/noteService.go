@@ -28,3 +28,7 @@ func (n *ServiceNote) Create(ctx context.Context, note *models.Note) error {
 func (n *ServiceNote) FindAll(ctx context.Context) ([]models.Note, error) {
 	return n.repository.FindAll(ctx)
 }
+
+func (n *ServiceNote) FindOneById(ctx context.Context, id string) (*models.Note, error) {
+	return n.repository.FindOneById(ctx, id)
+}

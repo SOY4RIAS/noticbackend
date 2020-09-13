@@ -10,17 +10,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="546dbe42-46f8-4d9a-ae63-a0269d257208" name="Default Changelist" comment="improve performance on db connection">
-      <change afterPath="$PROJECT_DIR$/app/server/options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/server/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/98f05cc0-82e8-4073-bfa7-b2a54a389e54.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/98f05cc0-82e8-4073-bfa7-b2a54a389e54.xml" afterDir="false" />
+    <list default="true" id="546dbe42-46f8-4d9a-ae63-a0269d257208" name="Default Changelist" comment="add server instance and listener for shutdown the system">
+      <change afterPath="$PROJECT_DIR$/app/handlers/v1/note/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/handlers/v1/note/results.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/handlers/v1/note/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/handlers/v1/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/handlers/v1/handlers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/handlers/v1/notesHandler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/note/noteRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/note/noteRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/server/options.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/server/options.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/note/noteService.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/note/noteService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/note/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/note/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/noticbackend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/noticbackend/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +136,14 @@
       <option name="presentableId" value="Default" />
       <updated>1599951591249</updated>
     </task>
+    <task id="LOCAL-00001" summary="add server instance and listener for shutdown the system">
+      <created>1600028604622</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600028604622</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +163,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="improve performance on db connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve performance on db connection" />
+    <MESSAGE value="add server instance and listener for shutdown the system" />
+    <option name="LAST_COMMIT_MESSAGE" value="add server instance and listener for shutdown the system" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -183,26 +194,26 @@
     <state x="742" y="266" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599747652300" />
     <state x="742" y="281" key="FileChooserDialogImpl/0.27.1920.993@0.27.1920.993" timestamp="1599953149880" />
     <state x="742" y="279" width="424" height="483" key="FileChooserDialogImpl/0.28.1920.980@0.28.1920.980" timestamp="1599674946272" />
-    <state width="1874" height="268" key="GridCell.Tab.0.bottom" timestamp="1600026448553">
+    <state width="1874" height="268" key="GridCell.Tab.0.bottom" timestamp="1600037690830">
       <screen x="0" y="27" width="1920" height="993" />
     </state>
     <state width="1878" height="383" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599865476161" />
-    <state width="1874" height="268" key="GridCell.Tab.0.bottom/0.27.1920.993@0.27.1920.993" timestamp="1600026448553" />
-    <state width="1874" height="268" key="GridCell.Tab.0.center" timestamp="1600026448553">
+    <state width="1874" height="268" key="GridCell.Tab.0.bottom/0.27.1920.993@0.27.1920.993" timestamp="1600037690830" />
+    <state width="1874" height="268" key="GridCell.Tab.0.center" timestamp="1600037690829">
       <screen x="0" y="27" width="1920" height="993" />
     </state>
     <state width="1878" height="383" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599865476160" />
-    <state width="1874" height="268" key="GridCell.Tab.0.center/0.27.1920.993@0.27.1920.993" timestamp="1600026448553" />
-    <state width="1874" height="268" key="GridCell.Tab.0.left" timestamp="1600026448553">
+    <state width="1874" height="268" key="GridCell.Tab.0.center/0.27.1920.993@0.27.1920.993" timestamp="1600037690829" />
+    <state width="1874" height="268" key="GridCell.Tab.0.left" timestamp="1600037690828">
       <screen x="0" y="27" width="1920" height="993" />
     </state>
     <state width="1878" height="383" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599865476160" />
-    <state width="1874" height="268" key="GridCell.Tab.0.left/0.27.1920.993@0.27.1920.993" timestamp="1600026448553" />
-    <state width="1874" height="268" key="GridCell.Tab.0.right" timestamp="1600026448553">
+    <state width="1874" height="268" key="GridCell.Tab.0.left/0.27.1920.993@0.27.1920.993" timestamp="1600037690828" />
+    <state width="1874" height="268" key="GridCell.Tab.0.right" timestamp="1600037690829">
       <screen x="0" y="27" width="1920" height="993" />
     </state>
     <state width="1878" height="383" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599865476160" />
-    <state width="1874" height="268" key="GridCell.Tab.0.right/0.27.1920.993@0.27.1920.993" timestamp="1600026448553" />
+    <state width="1874" height="268" key="GridCell.Tab.0.right/0.27.1920.993@0.27.1920.993" timestamp="1600037690829" />
     <state width="1878" height="341" key="GridCell.Tab.1.bottom" timestamp="1599786838669">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -230,10 +241,11 @@
     <state x="456" y="136" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599832519195" />
     <state x="364" y="114" key="SettingsEditor/0.27.1920.993@0.27.1920.993" timestamp="1600017899172" />
     <state x="456" y="156" key="SettingsEditor/0.28.1920.980@0.28.1920.980" timestamp="1599675128199" />
-    <state x="555" y="255" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1599792189921">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="555" y="270" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1600028611125">
+      <screen x="0" y="27" width="1920" height="993" />
     </state>
     <state x="555" y="255" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599792189921" />
+    <state x="555" y="270" key="Vcs.Push.Dialog.v2/0.27.1920.993@0.27.1920.993" timestamp="1600028611125" />
     <state x="666" y="142" width="587" height="753" key="find.popup" timestamp="1599770047414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

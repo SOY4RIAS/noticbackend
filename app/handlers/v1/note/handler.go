@@ -1,28 +1,18 @@
-package v1
+package note
 
 import (
 	"encoding/json"
 	"github.com/go-chi/chi"
 	"net/http"
 	"noticbackend/app/models"
-	"noticbackend/utils/response"
-
 	"noticbackend/app/services/note"
 	"noticbackend/config"
+	"noticbackend/utils/response"
 )
 
 type NotesHandler struct {
 	service note.Service
 	config  *config.Config
-}
-
-func NotesRouter(s note.Service, c *config.Config, r *chi.Mux) {
-	handler := &NotesHandler{service: s, config: c}
-
-	r.Route(BaseRoute+"/notes", func(r chi.Router) {
-		r.Get("/", handler.findAll)
-		r.Post("/", handler.createNote)
-	})
 }
 
 func (handler *NotesHandler) createNote(w http.ResponseWriter, r *http.Request) {
@@ -62,5 +52,31 @@ func (handler *NotesHandler) findAll(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	response.AsJson(w, http.StatusOK, notes)
+	payload := FindAll{
+		Data: DataNotes{
+			Notes: notes,
+		},
+	}
+
+	response.AsJson(w, http.StatusOK, payload)
+}
+
+func (handler *NotesHandler) findOneById(w http.ResponseWriter, r *http.Request) {
+
+	id := chi.URLParam(r, "noteID")
+
+	noteFetched, err := handler.service.FindOneById(r.Context(), id)
+
+	if err != nil {
+		response.AsErrorJson(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	payload := FindOneById{
+		Data: DataNote{
+			Note: *noteFetched,
+		},
+	}
+
+	response.AsJson(w, http.StatusOK, payload)
 }
