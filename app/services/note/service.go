@@ -10,4 +10,6 @@ type Service interface {
 	Create(context.Context, *models.Note) error
 	FindAll(context.Context) ([]models.Note, error)
 	FindOneById(context.Context, string) (*models.Note, error)
+	Update(context.Context, string, models.NoteUpdate) error
+	Delete(context.Context, string) error
 }

@@ -80,3 +80,50 @@ func (handler *NotesHandler) findOneById(w http.ResponseWriter, r *http.Request)
 
 	response.AsJson(w, http.StatusOK, payload)
 }
+
+func (handler *NotesHandler) update(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "noteID")
+	noteUpdate := new(models.NoteUpdate)
+
+	defer func() {
+		_ = r.Body.Close()
+	}()
+
+	decoder := json.NewDecoder(r.Body)
+
+	if err := decoder.Decode(&noteUpdate); err != nil {
+		response.AsErrorJson(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	err := handler.service.Update(r.Context(), id, *noteUpdate)
+
+	if err != nil {
+		response.AsErrorJson(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	payload := map[string]string{
+		"message": "Successful updated",
+	}
+
+	response.AsJson(w, http.StatusOK, payload)
+}
+
+func (handler *NotesHandler) delete(w http.ResponseWriter, r *http.Request) {
+
+	id := chi.URLParam(r, "noteID")
+
+	err := handler.service.Delete(r.Context(), id)
+
+	if err != nil {
+		response.AsErrorJson(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	payload := map[string]string{
+		"message": "Successful deleted",
+	}
+
+	response.AsJson(w, http.StatusOK, payload)
+}

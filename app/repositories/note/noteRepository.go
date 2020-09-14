@@ -4,10 +4,14 @@ import (
 	"context"
 	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"time"
+
 	"go.mongodb.org/mongo-driver/mongo"
 	"noticbackend/app/models"
 	"noticbackend/config"
 	"noticbackend/database"
+	"noticbackend/utils/parse"
 )
 
 const collectionName = "notes"
@@ -67,7 +71,7 @@ func (n RepositoryNote) FindAll(ctx context.Context) ([]models.Note, error) {
 	return notes, nil
 }
 
-func (n RepositoryNote) FindOneById(ctx context.Context, id string) (*models.Note, error) {
+func (n RepositoryNote) FindOneById(ctx context.Context, id primitive.ObjectID) (*models.Note, error) {
 
 	collection, err := database.GetCollection(ctx, collectionName)
 
@@ -88,10 +92,61 @@ func (n RepositoryNote) FindOneById(ctx context.Context, id string) (*models.Not
 	return &note, nil
 }
 
-func (n RepositoryNote) Update(_ context.Context, _ interface{}, _ interface{}) error {
-	panic("implement me")
+func (n RepositoryNote) Update(ctx context.Context, id primitive.ObjectID, noteUpdate models.NoteUpdate) error {
+	collection, err := database.GetCollection(ctx, collectionName)
+
+	if err != nil {
+		return err
+	}
+
+	filter := bson.D{{"_id", id}, {"isDeleted", false}}
+
+	noteUpdate.UpdatedAt = time.Now().Unix()
+
+	updateDocument, err := parse.ToDoc(noteUpdate)
+
+	if err != nil {
+		return err
+	}
+
+	update := bson.D{{"$set", updateDocument}}
+
+	_, err = collection.UpdateOne(ctx, filter, update)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
-func (n RepositoryNote) Delete(_ context.Context, _ *models.Note) error {
-	panic("implement me")
+func (n RepositoryNote) Delete(ctx context.Context, id primitive.ObjectID) error {
+	collection, err := database.GetCollection(ctx, collectionName)
+
+	if err != nil {
+		return err
+	}
+
+	filter := bson.D{{"_id", id}, {"isDeleted", false}}
+
+	noteDelete := models.NoteDelete{
+		IsDeleted: true,
+		DeletedAt: time.Now().Unix(),
+	}
+
+	deleteDocument, err := parse.ToDoc(noteDelete)
+
+	if err != nil {
+		return err
+	}
+
+	deleteStmt := bson.D{{"$set", deleteDocument}}
+
+	_, err = collection.UpdateOne(ctx, filter, deleteStmt)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

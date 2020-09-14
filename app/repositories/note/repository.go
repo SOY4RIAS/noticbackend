@@ -2,6 +2,7 @@ package note
 
 import (
 	"context"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"noticbackend/app/models"
 )
 
@@ -17,13 +18,13 @@ type Repository interface {
 
 	// FindOneById, find the user by the provided id
 	// return matched user and error if any
-	FindOneById(context.Context, string) (*models.Note, error)
+	FindOneById(context.Context, primitive.ObjectID) (*models.Note, error)
 
 	// Update, will update user data by id
 	// return error if any
-	Update(context.Context, interface{}, interface{}) error
+	Update(context.Context, primitive.ObjectID, models.NoteUpdate) error
 
 	// Delete, will remove user entry from DB
 	// Return error if any
-	Delete(context.Context, *models.Note) error
+	Delete(context.Context, primitive.ObjectID) error
 }

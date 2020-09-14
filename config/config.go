@@ -7,13 +7,13 @@ import (
 )
 
 type Config struct {
-	Address string `env:"ADDRESS" envDefault:":3000"`
-	JwtSecret string `env:"SEED_TOKEN,required"`
+	Address      string `env:"ADDRESS" envDefault:":3000"`
+	JwtSecret    string `env:"SEED_TOKEN,required"`
 	DatabaseName string `env:"DATABASE_NAME,required"`
-	DatabaseUri string `env:"DATABASE_URI,required"`
+	DatabaseUri  string `env:"DATABASE_URI,required"`
 }
 
-func New(files... string) *Config  {
+func New(files ...string) *Config {
 	err := godotenv.Load(files...)
 
 	if err != nil {
@@ -22,8 +22,6 @@ func New(files... string) *Config  {
 
 	config := Config{}
 
-
 	err = env.Parse(&config)
-
 	return &config
 }

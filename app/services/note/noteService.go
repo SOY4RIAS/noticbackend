@@ -2,6 +2,7 @@ package note
 
 import (
 	"context"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"noticbackend/app/models"
 	"noticbackend/app/repositories/note"
@@ -30,5 +31,29 @@ func (n *ServiceNote) FindAll(ctx context.Context) ([]models.Note, error) {
 }
 
 func (n *ServiceNote) FindOneById(ctx context.Context, id string) (*models.Note, error) {
-	return n.repository.FindOneById(ctx, id)
+	objID, err := primitive.ObjectIDFromHex(id)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return n.repository.FindOneById(ctx, objID)
+}
+
+func (n *ServiceNote) Update(ctx context.Context, id string, noteUpdate models.NoteUpdate) error {
+	objID, err := primitive.ObjectIDFromHex(id)
+
+	if err != nil {
+		return err
+	}
+	return n.repository.Update(ctx, objID, noteUpdate)
+}
+
+func (n *ServiceNote) Delete(ctx context.Context, id string) error {
+	objID, err := primitive.ObjectIDFromHex(id)
+
+	if err != nil {
+		return err
+	}
+	return n.repository.Delete(ctx, objID)
 }
